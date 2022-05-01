@@ -1,0 +1,29 @@
+{
+  "name": "algorithm-challenges",
+  "version": "1.0.0",
+  "description": "Working those coding muscles",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativedarkness/algorithm-chalenges.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/creativedarkness/algorithm-chalenges/issues"
+  },
+  "homepage": "https://github.com/creativedarkness/algorithm-chalenges#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^28.0.3",
+    "standard": "^17.0.0"
+  },
+  "standard": {
+    "evn": ["jest"]
+  }
+}
