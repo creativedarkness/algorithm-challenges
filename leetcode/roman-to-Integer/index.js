@@ -14,17 +14,35 @@ const romanNumeralsValues = {
   M: 1000
 }
 
+const baseRomanNumeralsValues = {
+  I: 1,
+  V: 5,
+  X: 10,
+  L: 50,
+  C: 100,
+  D: 500,
+  M: 1000
+}
+
 /**
  * 
  * @param {string} str 
  * @returns {number}
  */
-function romanToInt (str) {
+exports.romanToInt = function romanToInt (str) {
   let sum = 0
-  for (const numeral in romanNumeralsValues) {
 
+  for (let i = 0;  i < str.length; i++) {
+    const current = baseRomanNumeralsValues[str[i]]
+    const next = baseRomanNumeralsValues[str[i + 1]]
+
+    if (current < next) {
+      sum += next - current // IV -> 5-1 = 4
+      i++
+    } else {
+      sum += current
+    }
+    
   }
-
+  return sum
 }
-
-exports.romanToInt = romanToInt
