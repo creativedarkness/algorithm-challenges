@@ -1,4 +1,4 @@
-const { topTwoSalaries} = require('./index')
+const { topTwoSalaries } = require('./index')
 
 describe('topTwoSalaries', () => {
   it('should return [666, 222]', () => {
@@ -15,12 +15,27 @@ describe('topTwoSalaries', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should return a console error when array length is less than 2', () => {
-    const err = jest.spyOn(console, 'error').mockImplementation(() => {})
-    const salaries = [90]
-    topTwoSalaries(salaries)
-    expect(err).toBeCalledWith('Insufficient data to determine two salaries')
+  it.only('should return [666, 222] from [666, 5, 222]', () => {
+    const salaries = [666, 5, 222]
+    const expected = [666, 222]
+    const actual = topTwoSalaries(salaries)
+    expect(actual).toEqual(expected)
+  })
 
-    err.mockReset()
+  it('should return [1] from [1]', () => {
+    const salaries = [1]
+    const actual = topTwoSalaries(salaries)
+    expect(actual).toEqual([1])
+  })
+
+  it('should return [] from null/undefined', () => {
+    expect(topTwoSalaries()).toEqual([])
+    expect(topTwoSalaries(null)).toEqual([])
+  })
+
+  it('should return [666] from [666, 666, 666, 666]', () => {
+    const salaries = [666, 666, 666, 666]
+    const actual = topTwoSalaries(salaries)
+    expect(actual).toEqual([666])
   })
 })
